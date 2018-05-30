@@ -1,0 +1,153 @@
+Basics
+// Accessing key value with in a function of that object.
+// Approach 1
+var naren = {
+	firstName: 'Naren',
+	lastName: 'Kumar'
+	getFullName: function(){
+		return naren.firstName + naren.lastName;
+	}
+}
+// Approach 2
+var naren = {
+	firstName: 'Naren',
+	lastName: 'Kumar'
+	getFullName: function(){
+		return this.firstName + this.lastName;
+	}
+}
+
+// consider these 2 objects => taking more lines
+var neha = {
+	getFullName: function(){
+		return "Neha Singh";
+	}
+}
+
+var prakash = {
+	getFullName: function() {
+		return "Prakash";
+	}
+}
+
+Class => Structure
+Objects => neha, prakash
+
+Notes: remove function keyword and symbols(:,) inside function declaration
+class Student {
+	getFullName(){
+		return "";
+	}
+}
+
+var neha = new Student();
+neha.getFullName() => ""
+
+var prakash = new Student();
+prakash.getFullName() => ""
+
+
+// constructor => setting the default values while initialization.
+class Student {
+	constructor(firstName, lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+	getFullName(){
+		return this.firstName + this.lastName;
+	}
+}
+var neha = new Student('Neha', 'Singh');
+var prakash = new Student('Prakash', '');
+
+var neha = new Student('Neha', 'Singh');
+neha.getFullName() => "NehaSingh"
+
+var prakash = new Student('Prakash', '');
+prakash.getFullName() => "Prakash"
+
+class Person {
+	getFullName() {
+		return this.name;
+	}
+	setFullName(value){
+		this.name = value;
+	}
+}
+
+var p1 = new Person();
+p1.setFullName("Arjun Kumar")
+p1.getFullName() => "Arjun Kumar"
+
+// using single input in constructor ie object
+class Student2 {
+	constructor(props) {
+		this.props = props;
+	}
+	getFullName(){
+		return this.props.firstName + this.props.lastName;
+	}
+}
+var neha = new Student2({ firstName: 'Neha', lastName: 'Singh' });
+var prakash = new Student2({ firstName: 'Prakash'});
+
+var preethi = {
+	name: 'Neha',
+	age: 10,
+	city: 'Hyderabad'
+}
+class Student3 {
+	constructor(props){
+		this.name = props.name;
+		this.age = props.age;
+		this.city = props.city;
+	}
+}
+var preethi = new Student3({
+	name: 'Neha',
+	age: 10,
+	city: 'Hyderabad'
+});
+
+
+Inheritance => Accessing parent class behaviours
+class Father {
+	getName(){
+		return "Venkat"
+	}
+	getGender(){
+		return "M";
+	}
+}
+
+class Son extends Father {
+	getName(){
+		return "Prakash";
+	}
+	getCity(){
+		return "Hyderabad";
+	}
+}
+
+var prakash = new Son();
+prakash.getName() => "Prakash"
+prakash.getGender() => "M"
+prakash.getCity() => "Hyderabad"
+
+const pi = 3.14;
+pi = 3; => we cant update as it is a constant
+
+// Static Methods => can be accessible directly with class name only.
+class Person3 {
+	getName(){
+		return "";
+    }
+	static getType(){
+    	return "Person";
+	}
+}
+var p2 = new Person3();
+p2.getName() => ""
+p2.getType() => exception
+Person3.getType() => Person
+
