@@ -1,0 +1,391 @@
+// Start - Day 1
+
+Creating a variable
+// syntax
+var variableName = defaultValue;
+
+var a = 10;
+
+// Viewing the Values
+alert(a); -> displays 10 in alert box
+console.log(a); -> prints 10 to console
+
+var b;
+console.log(b) -> prints undefined
+
+var c = "Hello";
+
+// Example for boolean
+var d = true;
+
+// Ternary Operator
+var variableName = condition ? value1 : value2;
+if condition is true 
+	variableName = value1;
+else 
+	variableName = value2;
+	
+var e = a > b ? 30 : 40; 
+e value is 40
+
+1 + undefined => NaN
+1 - undefined => NaN
+1 / undefined => NaN
+1 * undefined => NaN
+
+Finding Types
+typeof(a) -> number
+typeof(b) -> undefined
+typeof(c) -> string
+
+Types
+	number
+	string
+	undefined
+	boolean
+	function
+	object
+	
+	
+Creating a function
+// Approach 1
+// Syntax
+function functionName() {
+
+}
+
+function welcome(){
+	console.log('Welcome to Demo');
+}
+
+// Executing a function
+// Syntax
+functionName();
+welcome();
+
+function addition(x, y) {
+	var z = x + y;
+	return z;
+}
+
+function subtraction(x, y){
+	console.log('x value is ' + x);
+	console.log('y value is ' + y);
+	var z = x - y;
+	return z;
+}
+subtraction(10, 2) => 8
+subtraction(5) => NaN => Not a number
+If parameter is not passed, it will be considered undefined
+subtraction(10, 2, 1) => 8
+additional parameters are ignored. 
+10 is copied to x
+2 is copied to y
+1 is ignored
+
+// Handling undefined in functions
+function subtraction(x, y){
+	x = x || 0;
+	y = y || 0;
+	console.log('x value is ' + x);
+	console.log('y value is ' + y);
+	var z = x - y;
+	return z;
+}
+
+function multiplication(x, y){
+	x = x || 1;
+	y = y || 1;
+	console.log('x value is ' + x);
+	console.log('y value is ' + y);
+	var z = x * y;
+	return z;
+}
+
+function division(x, y){
+	x = x || 0;
+	y = y || 1;
+	console.log('x value is ' + x);
+	console.log('y value is ' + y);
+	var z = x / y;
+	return z;
+}
+
+// example of usage of return
+function process(terminate){
+	console.log('Started');
+	if(terminate) {
+		console.log('Terminated');
+		return;
+	}
+	console.log('End');
+}
+return is not only used to return values. 
+It can stop execution and return control.
+
+// Approach 2 for creating function
+// Syntax
+var functionName = function () {
+
+}
+
+var addition = function(x, y) {
+	x = x || 0;
+	y = y || 0;
+	return x + y;
+}
+
+// Self Executing functions
+// Syntax
+(function functionName() {})();
+
+(function addition(x, y) {
+	x = x || 0;
+	y = y || 0;
+	return x + y;
+})();
+
+passing values
+(function addition(x, y) {
+	x = x || 0;
+	y = y || 0;
+	return x + y;
+})(10, 20);
+
+setting to variable
+var sum = (function addition(x, y) {
+	x = x || 0;
+	y = y || 0;
+	return x + y;
+})(10, 20);
+
+lowerCase -> addperson
+upperCase -> ADDPERSON
+camelCase -> addPerson -> prefers for function Names, instances
+variableCase -> AddPerson -> class names
+
+Object
+Arrays
+
+Class
+	Fields - Private, Public, Global, Static, Constant
+	Methods - Private, Public, Global, Static
+	Constructor
+	Inheritance
+	Method Overloading
+	
+// End - Day 1
+
+// Start - Day 2
+
+== compares only value
+=== compares both type and value
+
+1 == 1 => true
+1 == "1" => true
+1 === 1 => true => 1 === "1"
+
+Object 
+	key value pair
+	keys can be string or number
+	key should not have any space
+	key can have symbol like _
+	
+var person = {
+	firstName: 'Arjun',
+	lastName: 'Reddy'
+}
+
+Accessing a key
+using .operator -> person.firstName -> it supports only for keys of type string
+using [] brackets -> person['lastName'] -> it supports keys for both string and number
+
+
+Object.keys(person) -> returns array of keys for a passed in object
+
+// for loop 
+for(var key in person){
+	console.log('key is ' + key);
+	var item = person[key];
+	console.log(item);
+}
+
+
+Updating/Adding a key value 
+	if key exists, value will be updated, else key value pair is inserted into object
+person.city = 'Hyderabad'
+person['lastName'] = 'Krishna'
+
+deleting a key
+delete person.city
+
+Arrays
+var students = ['Arjun', 'Deepthi', 'Rajesh'];
+
+Accessing elements 
+students[0] -> Arjun
+students[1] -> Deepthi
+students[2] -> Rajesh
+students[3] -> undefined -> it will return undefined rather than throwing exception
+
+// Adding item to array
+students.push('Venkat');
+
+// Deleting last item from array
+var item = students.pop();
+
+Printing an array
+// Approach 1
+for(var index = 0; index < students.length; index ++){
+	console.log('index is ' + index);
+	var student = students[index];
+	console.log(student);
+}
+
+// Approach 2 - for in 
+for(var index in students){
+	console.log('index is ' + index);
+	var student = students[index];
+	console.log(student);
+}
+
+// Approach 3 - for of
+for(var student of students){
+	console.log(student);
+}
+
+break -> stops iteration of of further code and next indexes
+// Below code prints only first item and stops execution when index is 1
+for(var index in students){
+	if(index == 1){
+    	break;
+	}
+	console.log(students[index]);
+}
+
+continue -> stop execution of further code and continues with next index
+// Below code stops execution and continues to next item when index is 1.
+for(var index in students){
+	if(index == 1){
+    	continue;
+	}
+	console.log(students[index]);
+}
+
+// Example for Object
+var calculator = {
+	addition: function(x, y){
+		return x + y;
+	},
+	subtraction: function(x, y){
+		return x - y;
+	}
+}
+calculator.multiplication = function(x, y) { 
+	return x * y ; 
+}
+
+calculator['division'] = function(x, y) { 
+	return x / y ; 
+}
+
+calculator.addition(1, 2) -> 3
+calculator['subtraction'](1, 3) -> -2
+
+person.address = [
+    { line1: 'Kukatpally', line2: 'Hyderabad'},
+    { line1: 'Yousufguda', line2: 'Hyderabad' },
+    { line1: 'Ameerpet' },
+	{ line3: '1/2/3'}
+]
+
+Its not a mandatory that we should have keys for an item inside array
+// printing kukatpally
+person.address[0].line1
+person.address[0]['line1']
+
+
+var array = [1, "Hello", function printWelcome() { console.log("Welcome to Demo") }]
+
+execution of function
+array[2]();
+
+JSON.stringify -> converts object into string.
+var response = JSON.stringify(person)
+
+JSON.parse -> converts string to object
+JSON.parse(response)
+
+
+parseInt("10") -> 10 -> converts string to number
+parseInt("10.9") -> 10 -> it justs deletes the decimals and not performing round off
+parseFloat("10.9") -> 10.9 -> converts string to decimals
+
+Assume this is json, var person2 = { fn : "Karthik" , ln : "Kumar" }
+
+need to generate array of below sample.
+var x  = [ "fn => Karthik" , "ln => Kumar" ]
+
+var x = [];
+for(var key in person2){
+	x.push( key + " => " + person2[key]);
+}
+
+// End - Day 2
+
+// Start - Day 3
+
+function person(firstName, lastName) {
+	console.log('Welcome to Demo, ' + firstName + lastName);
+}
+// Skipping first name
+person('', 'Kumar')
+
+// Advantages of passing object as input, handling params order
+function person(options) {
+	console.log('Welcome to Demo, ' + options.firstName + options.lastName );
+}
+person( { lastName: 'Reddy'}) -> Welcome to Demo, undefinedReddy
+
+function person(options) {
+	options = options || {};
+	options.firstName = options.firstName || '';
+	options.lastName = options.lastName || '';
+	console.log('Welcome to Demo, ' + options.firstName + options.lastName );
+}
+person({ lastName: 'Reddy' }); => Reddy
+
+
+// setting person to Guest User
+function person(options) {
+	options = options || {};
+	options.firstName = options.firstName || 'Guest';
+	options.lastName = options.lastName || 'User';
+	console.log('Welcome to Demo, ' + options.firstName + options.lastName );
+}
+person() => Guest User
+
+function person1( firstName, lastName){
+	return {
+		getFullName: function(){
+        	return firstName + lastName;
+		}
+	}
+}
+person1('Arjun', 'Krishna').getFullName() -> ArjunKrishna
+
+var neha = {
+	name: 'Neha',
+	age: 20,
+	city: 'Hyderbad'
+}
+
+var prakash = {
+	name: 'Prakash',
+	age: 23,
+	city: 'Delhi'
+}
+
+var obj = person2();
+obj.setName('Krishna');
+obj.getName() -> Krishna
