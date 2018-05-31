@@ -389,3 +389,11 @@ var prakash = {
 var obj = person2();
 obj.setName('Krishna');
 obj.getName() -> Krishna
+
+
+how SPA(Single Page Application) works ?
+
+There will be only one html file (index.html).. with one empty div(root or app).When this empty div is loaded, we will inject all elements into empty div.
+Ex: React, Angular
+
+Similarly in case of React Native, One empty view is created and all mobile components are injected 
