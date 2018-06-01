@@ -1,0 +1,30 @@
+React - Independent library for developing user interfaces
+
+ReactDOM - Web
+ReactNative - Mobile
+
+
+Libraries to Import
+	React - React.createElement(type, attributes, innerhtml)
+	ReactDOM - ReactDOM.render(what to render, where to render);
+
+Adding Script to HTML
+	In Header => loaded before body is rendered
+	In Body => loaded after body is rendered
+	
+
+React.createElement('div', { id: 'div1', items: [ {}, {}]}, 'Welcome to Demo');
+React.createElement('button', { id: ''}, 'Login')
+React.createElement('textbox', { id: ''}, '')
+
+JSX vs HTML
+
+HTML => not  compiled
+		pure html components
+		
+
+JSX => compiled
+		jsx component => it will be converted into old format like (React.createElement), html components are generated dynamically
+		
+Important Points
+	Use curly braces for variables with in jsx elements.
