@@ -28,3 +28,34 @@ JSX => compiled
 		
 Important Points
 	Use curly braces for variables with in jsx elements.
+
+React Component => function(stateless), ES6 class(stateful)
+
+ES6 React Component => Create a class and extend the React.Component class and implement the default method render for returning views.
+
+By default, this is null with in any function of ES6 component, we need to use .bind(this) in order to pass the scope(this) to the function.
+
+variables
+block level => 
+			variables created with in the function. 
+			Cant access outside the function.
+			var name, students;
+public variables =>
+			this.name
+			this.students
+			Can be created in any method and can be accessed in all methods of that class.
+			
+props =>
+		this.props.name
+		this.props.students
+		there are variables that component receives
+		this should not update 
+			
+
+
+
+
+
+
+
+

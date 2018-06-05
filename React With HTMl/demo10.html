@@ -1,0 +1,91 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		class TestComponent extends React.Component {
+			render() {
+				return <div>
+						<h1>{this.props.title}</h1>
+						<table>
+							<thead>
+								<tr>
+									<td>Name</td>
+									<td>Age</td>
+									<td>City</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Deepa</td>
+									<td>20</td>
+									<td>Hyderabad</td>
+								</tr>
+								<tr>
+									<td>Parshuram</td>
+									<td>23</td>
+									<td>Delhi</td>
+								</tr>
+								<tr>
+									<td>Venkat</td>
+									<td>13</td>
+									<td>Hyderabad</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>;
+			}
+		}
+		
+		class TestComponent2 extends React.Component {
+			onRefresh(){
+				debugger;
+				alert('Total Students are' + this.studentCount);
+			}
+			render() {
+				var students = [
+					{ name: 'Deepa', age:20 , city: 'Hyderabad' },
+					{ name: 'Parshuram', age:15 , city: 'Delhi' },
+					{ name: 'Preethi', age:22 , city: 'Hyderabad' },
+					{ name: 'Karthik', age:24 , city: 'Hyderabad' }
+				];
+				
+				this.studentCount = 4;
+				
+				var rows = [];
+				for(var student of students){
+					rows.push(<tr>
+									<td>{student.name}</td>
+									<td>{student.age}</td>
+									<td>{student.city}</td>
+								</tr>);
+				}
+				
+				return <div>
+						<h1>{this.props.title}</h1>
+						<input type='button' value='Refresh' onClick={this.onRefresh.bind(this)} />
+						<table>
+							<thead>
+								<tr>
+									<td>Name</td>
+									<td>Age</td>
+									<td>City</td>
+								</tr>
+							</thead>
+							<tbody>
+								{rows}
+							</tbody>
+						</table>
+					</div>;
+			}
+		}
+
+		ReactDOM.render(<TestComponent2 title="Welcome to React Students "/>, document.getElementById('root'));
+	</script>
+</body>
+</html>
