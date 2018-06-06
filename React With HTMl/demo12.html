@@ -1,0 +1,72 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		class TestComponent extends React.Component {
+			
+			constructor(props){
+				super(props);
+				const STUDENTS = [
+					{ name: 'Deepa', age:20 , city: 'Hyderabad' },
+					{ name: 'Parshuram', age:15 , city: 'Delhi' },
+					{ name: 'Preethi', age:22 , city: 'Hyderabad' },
+					{ name: 'Karthik', age:24 , city: 'Hyderabad' }
+				];
+				this.state = {
+					students: STUDENTS,
+					students_Clone: STUDENTS
+				}
+			}
+		
+			searchBoxChange(event){
+				console.log(event.target.value);
+				var str = event.target.value;
+				var filteredStudents = [];
+				for(var student of this.state.students){
+					if(student.name.toLowerCase().indexOf(str.toLowerCase()) >= 0 ||
+					student.city.toLowerCase().indexOf(str.toLowerCase()) >= 0) {
+						filteredStudents.push(student);
+					}
+				}
+				this.setState( {students_Clone: filteredStudents} );
+			}
+			
+			render() {
+				var rows = [];
+				for(var student of this.state.students_Clone){
+					rows.push(<tr>
+									<td>{student.name}</td>
+									<td>{student.age}</td>
+									<td>{student.city}</td>
+								</tr>);
+				}
+				
+				return <div>
+						<h1>{this.props.title}</h1>
+						<input type='text' onChange={this.searchBoxChange.bind(this)}/> Search
+						<table>
+							<thead>
+								<tr>
+									<td>Name</td>
+									<td>Age</td>
+									<td>City</td>
+								</tr>
+							</thead>
+							<tbody>
+								{rows}
+							</tbody>
+						</table>
+					</div>;
+			}
+		}
+
+		ReactDOM.render(<TestComponent title="Welcome to React Students "/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

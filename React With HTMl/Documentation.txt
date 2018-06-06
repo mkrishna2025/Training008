@@ -50,7 +50,69 @@ props =>
 		this.props.students
 		there are variables that component receives
 		this should not update 
-			
+		
+state level =>
+		this.state.name
+		this.state.students
+	
+Assume we have keep a, b, c, d, e variables in state
+	this.state = {
+		a: 1,
+		b: 2,
+		c: 3,
+		d: 4,
+		e: 5
+	}
+
+Assume we need to update b to 10 and c to 20
+	this.setState({ b: 10, c: 20});
+	
+As b and c values are changed, ui refreshes automatically with these values.
+
+Assume we need to update b to 2 and c to 3
+	this.setState( { b: 2, c: 3 } )
+As b and c values are not changed, ui will not refresh...
+
+
+this.state = {
+	data: [
+		{
+			location: 'Hyderabad',
+			temp: 20,
+			humidity: 15
+		},
+		{
+			location: 'Nellore',
+			temp: 30,
+			humidity: 15
+		}
+	]
+}
+// assume temperatures are updated to 40..
+
+this.setState({
+	data: [
+		{
+			location: 'Hyderabad',
+			temp: 40,
+			humidity: 15
+		},
+		{
+			location: 'Nellore',
+			temp: 40,
+			humidity: 15
+		}
+	]
+})
+
+indexOf gives position/index of item
+"Krishna".indexOf("K") => 0
+"Krishna".indexOf("i") => 2
+"Krishna".indexOf("india") => -1
+
+
+
+
 
 
 
