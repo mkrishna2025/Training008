@@ -1,0 +1,120 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		const STATES = [
+			{ value: '1', display: 'Telangana', country: '1' },
+			{ value: '2', display: 'Delhi', country: '1' },
+			{ value: '3', display: 'New Jersey', country: '2' },
+			{ value: '4', display: 'Washington', country: '2' }
+		];
+		
+		const COUNTRIES = [
+			{ value: '1', display: 'India' },
+			{ value: '2', display: 'America' },
+			{ value: '3', display: 'Canada' },
+			{ value: '4', display: 'Australia' }
+		];
+		
+		class TestComponent extends React.Component {
+			constructor(props){
+				super(props);
+				
+				this.state = {
+					countries: COUNTRIES,
+					states: STATES,
+					states_Clone: STATES
+				}
+			}
+		
+			countryChange(event){
+				var selectedCountry = event.target.value;
+				var filteredStates = [];
+				for(var state of this.state.states){
+					if(state.country == selectedCountry) {
+						filteredStates.push(state);
+					}
+				}
+				this.setState({ states_Clone: filteredStates });
+			}
+			login(){
+				alert('Logged in');
+			}
+			render() {
+				var countryOptions = [];
+				for(var country of this.state.countries){
+					countryOptions.push(<option value={country.value}>{country.display}</option>);
+				}
+				
+				var stateOptions = [];
+				for(var state of this.state.states_Clone){
+					stateOptions.push(<option value={state.value}>{state.display}</option>);
+				}
+				
+				return <div>
+						<h3>{this.props.title}</h3>
+						<div>
+							<label>First Name</label>
+							<input type="text" id="fname" name="firstname" placeholder="Your name.." />
+
+							<label>Last Name</label>
+							<input type="text" id="lname" name="lastname" placeholder="Your last name.." />
+
+							<label>Country</label>
+							<select id="country" name="country" onChange={this.countryChange.bind(this)} >
+							  <option value="0">Please select Country</option>
+							  {countryOptions}
+							</select>
+							<label>State</label>
+							<select id="state" name="state">
+							  <option value="0">Please select State</option>
+							  {stateOptions}
+							</select>
+							<input type="submit" value="Submit" onClick={this.login.bind(this)} />
+						</div>
+					</div>;
+			}
+		}
+
+		ReactDOM.render(<TestComponent title="Welcome to Login "/>, document.getElementById('root'));
+	</script>
+</body>
+</html>
