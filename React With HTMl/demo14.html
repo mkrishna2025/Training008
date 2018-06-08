@@ -1,0 +1,106 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+.warning {
+	color: red;
+}
+</style>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		class Login extends React.Component {
+			constructor(props){
+				super(props);
+				this.state = {
+					username: '',
+					password: '',
+					errorUsername: '',
+					errorPassword: ''
+				}
+			}
+			login(){
+				var usernameMsg = '';
+				var passwordMsg = '';
+				var isValid = true;
+				
+				if(this.state.username == ''){
+					usernameMsg = 'Please enter User Name';
+					isValid = false;
+				}
+				
+				if(this.state.password == ''){
+					passwordMsg = 'Please enter password';
+					isValid =  false;
+				}
+				
+				this.setState({
+					errorUsername: usernameMsg,
+					errorPassword: passwordMsg
+				});
+				
+				if(isValid) {
+					alert(JSON.stringify({
+						username: this.state.username,
+						password: this.state.password
+					}));
+				}
+				
+			}
+			render() {
+				return <div>
+						<h3>{this.props.title}</h3>
+						<div>
+							<label>UserName</label>
+							<input type="text" id="username" name="username" placeholder="Your name.." onChange={event => this.state.username = event.target.value}/>
+							<span class="warning"> {this.state.errorUsername} </span>
+							<br/>
+							<br/>
+							<label>Password</label>
+							<input type="text" id="password" name="password" placeholder="Your password.." onChange={event =>this.state.password = event.target.value}/>
+							<span class="warning"> {this.state.errorPassword} </span>
+							<br/>
+							<input type="submit" value="Login" onClick={this.login.bind(this)} />
+						</div>
+					</div>;
+			}
+		}
+
+		ReactDOM.render(<Login title="Welcome to Login "/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

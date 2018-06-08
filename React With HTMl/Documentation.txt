@@ -111,6 +111,18 @@ indexOf gives position/index of item
 "Krishna".indexOf("india") => -1
 
 
+block level => var name
+public => this.name
+state => this.state.name
+props => this.props.name
+
+setState
+this.props.children => inner nodes
+defaultProps => default attributes 
+
+
+
+
 
 
 

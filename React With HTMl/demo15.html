@@ -1,0 +1,48 @@
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+	
+		class Header extends React.Component {
+			render() {
+				return <h2>{this.props.title}</h2>;
+			}
+		}
+		
+		class Footer extends React.Component {
+			render() {
+				return <h3>@CopyRight 2015</h3>;
+			}
+		}
+		
+		class ContactUs extends React.Component {
+			render() {
+				return <div>
+						<Header title={this.props.title} />
+						This is ContactUs page
+						<Footer />
+					</div>;
+			}
+		}
+		
+		class Aboutus extends React.Component {
+			render() {
+				return <div>
+						<Header title={this.props.title} />
+						This is Aboutus page
+						<br/>
+						<Footer />
+					</div>;
+			}
+		}
+
+		ReactDOM.render(<Aboutus title="Welcome to Demo "/>, document.getElementById('root'));
+	</script>
+</body>
+</html>
