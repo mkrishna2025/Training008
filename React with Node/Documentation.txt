@@ -115,9 +115,36 @@ ES6
 import React from 'react';
 export App; => imported with same reference name
 				usually prefered if multiple components
+	
+With in the file, we will have multiple exports	
+export A;
+export B;
+
+import { A, B } from './file.js'
 				
 export default App; => imported with any reference name
 					usually prefered for single component
+export default A;
+export B;
+export C;
+
+import AComponent, { B } from './file.js'
+
+
+npm
+	npm install test --save
+
+https://yarnpkg.com/lang/en/docs/install/#windows-stable	
+yarn is updated version to npm
+	yarn add test
+	
+Routing
+	npm install react-router-dom --save
+	yarn add react-router-dom
+	
+
+	
+
 
 
 
