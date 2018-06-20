@@ -142,8 +142,24 @@ Routing
 	npm install react-router-dom --save
 	yarn add react-router-dom
 	
-
 	
+https://github.com/mkrishna2025/Routing/
+
+Main Project Structure
+	src
+		components - reusuable components
+		containers/pages - pages
+		data - static data
+		util - utilities
+		images - images
+
+Pending
+
+Converting html to React
+Backend Calls
+
+
+
 
 
 
