@@ -160,7 +160,16 @@ Backend Calls
 
 
 
-
+css
+	public - copied as it is to bundle
+	src - copy only css names that are used in project and compressed in bundle
+	
+images
+	public - copied all images(100) to bundle
+	src - copy only 20 images(assume we are importing 20 images using import)
+	
+	
+Alt + Shift + F for formatting code in Visual Studio Code in windows
 
 
 
