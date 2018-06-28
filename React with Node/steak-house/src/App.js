@@ -7,6 +7,7 @@ import { Route, Switch } from 'react-router-dom'
 import Login from './containers/login';
 import Home from './containers/home';
 import Contactus from './containers/contactus';
+import Reservation from './containers/reservation';
 import UnImplemented from './containers/unimplemented';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/contactus" component={Contactus} />
+        <Route path="/reservation" component={Reservation} />
         <Route path="/*" component={UnImplemented} />
       </Switch>
     );

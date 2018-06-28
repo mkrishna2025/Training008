@@ -171,7 +171,31 @@ images
 	
 Alt + Shift + F for formatting code in Visual Studio Code in windows
 
+Global Cache
+	SessionStorage => values reset when brower is closed
+	
+	LocalStorage => never resets
 
+LocalStorage
+	// setting the key value pair
+	localStorage.setItem('age', 20)
+	
+	// retrieving the value from key
+	localStorage.getItem('age') => "20"
+	
+SessionStorage 	
+	// setting the key value pair
+	sessionStorage.setItem('gender', 'M')
+	
+	// retrieving the value from key
+	sessionStorage.getItem('gender') => "M"
+	sessionStorage.getItem('gender345') => null (no exception for other keys)
+
+React => Independent Library
+
+	React-Dom => Website
+	React-Native => Mobile App
+	React-VR => VR App
 
 
 https://reactjs.org/docs/add-react-to-an-existing-app.html

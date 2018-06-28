@@ -4,6 +4,9 @@ import './login.css';
 export default class Login extends Component {
   onLogin() {
     //this.props.history.push('home');
+    localStorage.setItem('age', 20);
+    sessionStorage.setItem('gender', 'M');
+    
     this.props.history.push({
       pathname: 'home',
       params: { userName: 'Karthik', city: 'Hyderabad'}
