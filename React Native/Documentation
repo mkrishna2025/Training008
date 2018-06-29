@@ -1,0 +1,34 @@
+Installation
+
+Approach 1 - Regular one
+npm install -g react-native-cli
+react-native init AwesomeProject
+
+We can run in Emulator using react-native run-ios/run-android
+We can test in same os we are running at that moment
+
+Approach 2 - Expo
+npm install -g create-react-native-app
+create-react-native-app AwesomeProject
+
+cd AwesomeProject
+npm start
+
+We can run in Expo. We can test it in both IOS/Android indepening of OS running.
+We can test in Emulator also
+
+Approach 3 - snack 
+Easy to create a project and share it.
+
+C:\Users\kamal\AppData\Local\Android\sdk\tools
+emulator -list-avds
+emulator @Nexus_6_API_26
+
+div	=> View
+h1 => <Text fontsize=20>
+h2 => <Text fontsize=18>
+
+<Text style={{fontSize: 20}}>Demo1. Welcome to Demo</Text>
+<Text style={{fontSize: 18}}>Krishna</Text>
+<Text style={{fontSize: 16}}>from Hyderabad</Text>
+
