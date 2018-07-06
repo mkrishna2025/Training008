@@ -32,3 +32,139 @@ h2 => <Text fontsize=18>
 <Text style={{fontSize: 18}}>Krishna</Text>
 <Text style={{fontSize: 16}}>from Hyderabad</Text>
 
+
+Routing
+npm install react-navigation --save
+
+
+import { StackNavigator } from 'react-navigation';
+
+Basic Example
+var routes = {
+    Login: { screen: LoginScreen}
+}
+
+var Navigator = StackNavigator(routes);
+
+export default class App extends Component {
+  render() {
+    return (
+      <Navigator />
+    );
+  }
+}
+
+using Route Options for loading second screen
+var routes = {
+    Login: { screen: LoginScreen},
+    Home: { screen: HomeScreen}
+}
+
+var routeOptions = {
+  initialRouteName: 'Home'
+}
+var Navigator = StackNavigator(routes, routeOptions);
+
+export default class App extends Component {
+  render() {
+    return (
+      <Navigator />
+    );
+  }
+}
+
+// we can configure options like title, headerleft, headerright for each routes.
+var home_headerRight = <View style= {{flexDirection:"row",alignItems:"center",marginRight:15}}>
+            <View>
+              <Icon type="FontAwesome" size={24} color="black" name="bell"/>
+            </View>
+            <View  style= {{marginLeft:10}}>
+              <Icon type="FontAwesome" size={24} color="black" name="envelope" />
+            </View>
+        </View>
+
+var homeNavigationOptions = {
+          title: 'Home',
+          headerRight: home_headerRight
+        };
+
+var routes = {
+    Login: { screen: LoginScreen},
+    Home: { 
+        screen: HomeScreen, 
+        navigationOptions: homeNavigationOptions
+    }
+}
+
+var routeOptions = {
+  initialRouteName: 'Home'
+}
+var Navigator = StackNavigator(routes, routeOptions);
+
+export default class App extends Component {
+  render() {
+    return (
+      <Navigator />
+    );
+  }
+}
+
+var routes = {
+  StartUp:{ screen: StartUpScreen, navigationOptions: { title: 'Startup' } }
+}
+var routes = {
+  Screen1:{ screen: Component1, navigationOptions: {} },
+  Screen2:{ screen: Component2, navigationOptions: {} }
+}
+var stackOptions = {
+	initialRouteName: 'Screen2'
+}
+const Navigations = StackNavigator(routes, stackOptions);
+export default class Demo extends React.Component {
+    render(){
+        return (
+            <Navigator />
+        )
+    }
+}
+
+import { TabNavigator }  from 'react-navigation';
+
+
+Backed Call
+fetch(options).done(successCallBack).catch(failedCallBack);
+
+line1
+fetch({url: 'http://www.google.com'}).done((response) => console.log(response))
+				.catch((exception) => console.log(exception))
+line3
+line4
+line5
+
+var successCallBack = (respone) => { return response1;}
+var successCallBack2 = (response1) => { return response2;}
+var successCallBack3 = (response2) => { return response3;}
+var successCallBack4 = (response3) => { return response4;}
+var successCallBack5 = (response4) => { Alert.alert(response4)}
+fetch(options).done(successCallBack)
+			.done(successCallBack2)
+			.done(successCallBack3)
+			.done(successCallBack4)
+			.done(successCallBack5)
+			.catch(failedCallBack);
+			
+const x1 = this.props.x1;
+const x2 = this.props.x2;
+const x3 = this.props.x3;
+const x4 = this.props.x4;
+
+const { x1, x2, x3, x4 } = this.props;
+const { x1,
+		x2,
+		x3,
+		x4 } = this.props;
+
+
+		
+npm install PreferencePackage --save
+react-native link
