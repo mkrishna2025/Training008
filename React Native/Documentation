@@ -130,8 +130,49 @@ export default class Demo extends React.Component {
 
 import { TabNavigator }  from 'react-navigation';
 
+Person
+	1
+	2
+	3
+	4 - 1 hr - collect money from one bank
+	5 - 2 hrs - collect money from other person and deposit in bank
+	6
+	7
+	8
+	
+	
+4 - we will ask our friend to collect money from bank
 
-Backed Call
+TakeHelp({
+	action: 'CollectMoney',
+	name: 'Arjun',
+	amount: 10000
+})  => friend gives us promise to fulfil the task...
+	=> promise is fulfilled => success
+	=> promise is failed => failed
+
+	
+Asynchronous operations => tasks/process happening along with the original tasks in parallel
+Promise => Handling asynchronous operations
+		=> will have 2 outcomes => success , failure
+
+here TakeHelp method will return a promise
+TakeHelp({
+	action: 'CollectMoney',
+	name: 'Arjun',
+	amount: 10000
+}).then(function(response) {}).catch(function(error) {});
+		
+
+TakeHelp({
+	action: 'CollectAndDepositMoney',
+	name: 'Arjun',
+	amount: 10000
+}).then(resp => {  } ).then(resp2 => {}).catch(error => {})
+
+collect and deposit
+
+Backend Call
 fetch(options).done(successCallBack).catch(failedCallBack);
 
 line1
