@@ -202,3 +202,61 @@ https://reactjs.org/docs/add-react-to-an-existing-app.html
 
 Downloading Yarn
 https://yarnpkg.com/lang/en/docs/install/#windows-stable
+
+LifeCycle
+	constructor - default values - restaurants = []
+	componentWillMount - subscription to channels, connecting to bluetooth
+	render - rendering
+	componentDidMount - triggered when page is rendered. useful to load actual data. 	restaurants = response.data.records
+	componentWillUnMount - desubscription to channels, disconnecting to bluetooth
+
+/users
+/students
+/blutoothconnection
+
+componentDidMount(){
+        //alert('componentDidMount');
+        fetch("http://trainingkit.azurewebsites.net/api/Users/GetAttendees")
+        .then(response => {
+            //debugger;
+            if(response.status == 200){
+                return response.json();
+            }
+        })
+        .then(response => {
+            //debugger;
+            this.setState({ students: response.data });
+        })
+        .catch(reason => {
+            debugger;
+        })
+    }
+
+	
+// callback functions are the functions that are passed as input parameters to the called function and those are executed/triggered inside called function
+
+function add(x, y){
+	var z = x + y;
+}
+
+function add(x, y, callback){
+	var z = x + y;
+	callback(z);
+}
+
+add(1, 2, function(value) { console.log('result is ' + value); })
+
+
+npm install react-gmaps@1.5.0 --save
+
+sample projects/tools 
+https://react.rocks/
+
+complete modules
+https://react.parts/
+
+
+
+
+
+
